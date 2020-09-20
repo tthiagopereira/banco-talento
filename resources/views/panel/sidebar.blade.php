@@ -12,7 +12,7 @@
             </li>
             @can('empresa',\App\User::class)
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('proria.edit', Auth::user()->id)}}"><i class="icon-settings"></i> Configuração</a>
+                    <a class="nav-link" href="#"><i class="icon-user"></i> Talentos</a>
                 </li>
             @endcan
             @can('viewPermissao', \App\User::class)

@@ -37,7 +37,6 @@
                     </div>
                     <!--/.col-->
                 </div>
-                @include('sistema.empresa.form.edit')
             </div>
         </div>
     @endcan

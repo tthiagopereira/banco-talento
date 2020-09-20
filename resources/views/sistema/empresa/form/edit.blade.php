@@ -10,11 +10,9 @@
                             <div class="row">
                                 <div class="col">
                                     <h3><span class="audiowide"><i class="fa fa-puzzle-piece"></i>
-                                            @if(Auth::user()->tipo === 'Empresa')
-                                                Configuração basica
-                                            @else
+
                                                 Editar empresa
-                                            @endif
+
                                         </span></h3>
                                 </div>
                                 @if(Auth::user()->tipo != 'Empresa')
@@ -38,15 +36,11 @@
                                                     <strong>Formulário</strong>
                                                 </div>
                                                 <div class="card-body">
-                                                    @if(Auth::user()->tipo === 'Empresa')
-                                                        <form action="{{route('propria.update',Auth::user()->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                                            @else
-                                                                <form action="{{route('empresa.update',$id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                                                    @endif
-                                                                    {{ csrf_field() }}
-                                                                    @include('sistema.empresa.form.form')
-                                                                    <button class="btn btn-block text-white btn-lg cinza audiowide">Salvar</button>
-                                                                </form>
+                                                    <form action="{{route('empresa.update',$id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                                        {{ csrf_field() }}
+                                                        @include('sistema.empresa.form.form')
+                                                        <button class="btn btn-block text-white btn-lg cinza audiowide">Salvar</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

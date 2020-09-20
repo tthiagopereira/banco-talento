@@ -79,8 +79,6 @@ Route::middleware('auth')->group(function() {
     Route::post('empresa/update/{id}','EmpresaController@update')->name('empresa.update');
     Route::get('empresa/destroy/{id}','EmpresaController@destroy')->name('empresa.destroy');
 
-    Route::post('proria/empresa/update/{id}','EmpresaController@updateEmpresa')->name('propria.update');
-    Route::get('proria/empresa/edit/{id}','EmpresaController@editEmpresa')->name('proria.edit');
 });
 
 Route::view('/sample/error404','errors.404')->name('error404');

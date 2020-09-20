@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Empresa;
 use App\Escalao;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -73,7 +74,7 @@ class RegisterController extends Controller {
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name'    => $data['name'],
             'email'   => $data['email'],
             'status'  => 'Inativo',
@@ -82,5 +83,13 @@ class RegisterController extends Controller {
             'tipo'    => 'Empresa',
             'password'=>  bcrypt($data['password']),
         ]);
+
+        Empresa::create([
+           'nome_empresa' => $data['nome_empresa'],
+           'user_id'=> $user->id
+        ]);
+
+        return $user;
+
     }
 }

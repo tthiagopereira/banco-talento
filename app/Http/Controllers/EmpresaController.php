@@ -65,17 +65,6 @@ class EmpresaController extends Controller
         return redirect()->route('empresa');
     }
 
-    public function editEmpresa($id) {
-        $user = User::find($id);
-        if(!$user) {
-            $this->mensagemErro('Boa tentativa mais você não tem acesso');
-            return back();
-        }
-        $empresa = Empresa::where('user_id',$id)->first();
-
-        return view('sistema.empresa.form.edit', compact('empresa','user','id'));
-    }
-
     public function edit($id)
     {
         $empresa = Empresa::find($id);
@@ -111,10 +100,22 @@ class EmpresaController extends Controller
         $user->update();
 
         $empresa = Empresa::where('user_id', $id)->first();
-        $empresa->nome_empresa = $request['nome_empresa'];
 
-        $image_logo = file($request['image_logo']);
+        if($empresa){
+            $empresa->nome_empresa = $request['nome_empresa'];
+            $image_logo= file($request['image_logo']);
+            $empresa->image_logo = $image_logo;
+            $empresa->update();
+        }else{
+            $novaEmpresa = new Empresa();
+            $novaEmpresa->nome_empresa = $request['nome_empresa'];
+            $image_logo = file($request['image_logo']);
+            $novaEmpresa->image_logo = $image_logo;
+            $empresa->save();
+        }
 
+        $this->mensagemSucesso('Informações salvas com sucesso');
+        return redirect()->route('empresa.talentos');
     }
 
     public function update(Request $request, $id){

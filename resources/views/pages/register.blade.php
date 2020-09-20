@@ -57,9 +57,7 @@
     <div class="row mt-10">
         <div class="col-md-2 alert "></div>
         <div class="col-md-8 alert text-center">
-            <h2 class="audiowide">Seja bem vindo</h2>
-            <hr>
-            <h2 class="audiowide">Formulario de cadastro</h2>
+            <h2 class="audiowide">Seja bem vindo ao banco de talento</h2>
         </div>
         <div class="col-md-2 alert"></div>
     </div>
@@ -85,14 +83,31 @@
             <form method="POST" action="{{ route('register') }} " class="validate-form" name="form1">
 
                 {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{--name--}}
+                        <div class="wrap-input100 validate-input">
+                            <input type="text" name="nome_empresa" class="form-control input-sm chat-input input100 caixa_alta"
+                                   title="não podem conter números"  required placeholder="Informe o nome da empresa" id="nome_empresa" autofocus>
+                            <small id="guerraHelp" class="form-text text-muted audiowide text-center">Nome da empresa</small>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100"><i class="fa fa-user-circle pb-3" aria-hidden="true"></i></span>
 
+                        </div>
+                    </div>
+
+{{--                    <div class="form-group col-md-6">--}}
+{{--                        <input type="file" name="image_logo" id="image_logo" class="form-control">--}}
+{{--                        <small  class="form-text text-muted text-center audiowide">Logo da empresa</small>--}}
+{{--                    </div>--}}
+                </div>
                 {{--Dados pessoais--}}
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         {{--name--}}
                         <div class="wrap-input100 validate-input">
                             <input type="text" name="name" class="form-control input-sm chat-input input100 caixa_alta"
-                                   title="não podem conter números"  required placeholder="Nome" id="nome" autofocus>
+                                   title="não podem conter números"  required placeholder="Nome" id="nome">
                             <small id="guerraHelp" class="form-text text-muted audiowide text-center">Nome</small>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100"><i class="fa fa-user-circle pb-3" aria-hidden="true"></i></span>
