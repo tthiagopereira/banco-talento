@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
                 OmSeeder::class,
                 FormacaoMilitarSeedd::class,
                 CursoSeed::class,
-                UsersTableSeeder::class
+                AdminSeed::class
+//                UsersTableSeeder::class
             ]
         );
     }

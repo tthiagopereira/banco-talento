@@ -111,6 +111,9 @@ class EmpresaController extends Controller
         $user->update();
 
         $empresa = Empresa::where('user_id', $id)->first();
+        $empresa->nome_empresa = $request['nome_empresa'];
+
+        $image_logo = file($request['image_logo']);
 
     }
 
